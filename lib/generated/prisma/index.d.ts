@@ -1494,6 +1494,9 @@ export namespace Prisma {
       id: string
       title: string
       imageUrl: string
+      /**
+       * The main content of the article in markdown format
+       */
       content: string
       description: string
       readTimes: number
