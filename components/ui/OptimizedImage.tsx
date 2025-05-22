@@ -22,6 +22,18 @@ export function OptimizedImage({
   priority = false,
 }: OptimizedImageProps) {
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  if (error) {
+    return (
+      <div className={cn(
+        'bg-gray-200 flex items-center justify-center',
+        className
+      )}>
+        <span className="text-gray-500">Image failed to load</span>
+      </div>
+    );
+  }
 
   return (
     <Image
@@ -36,6 +48,7 @@ export function OptimizedImage({
         className
       )}
       onLoadingComplete={() => setIsLoading(false)}
+      onError={() => setError(true)}
     />
   );
 } 
